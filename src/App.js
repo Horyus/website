@@ -1,70 +1,109 @@
 import React, {Component} from 'react';
-import {Particles} from 'react-particles-js';
 import './App.css';
+import Particles from './components/magicparticles';
 import horyus from './images/horyus.png';
-import Lottie from 'react-lottie';
-import * as VortexAnimation from './animations/test.json';
-
+import HoryusDetail from './components/horyus_details';
+import VortexDetail from './components/vortex_details';
+import ComingSoonDetails from "./components/comingsoon_details";
 
 class App extends Component {
-    render() {
-        const defaultOptions = {
-            loop: true,
-            autoplay: true,
-            animationData: VortexAnimation,
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            details: HoryusDetail,
+            vselected: "_",
+            thselected: "_",
+            tselected: "_"
         };
+
+        this.setVortex = this.setVortex.bind(this);
+        this.setThunder = this.setThunder.bind(this);
+        this.setTicket = this.setTicket.bind(this);
+        this.setHoryus = this.setHoryus.bind(this);
+
+    }
+
+    setHoryus() {
+
+        let vortex = "_";
+        if (this.state.vselected === 'vortex')
+            vortex = "vnone";
+
+        let thunder = "_";
+        if (this.state.thselected === 'thunder')
+            thunder = "thnone";
+
+        let ticket = "_";
+        if (this.state.tselected === 'ticket')
+            ticket = "tnone";
+
+        this.setState({
+            details: HoryusDetail,
+            vselected: vortex,
+            thselected: thunder,
+            tselected: ticket
+        })
+    }
+
+    setVortex() {
+
+        let thunder = "_";
+        if (this.state.thselected === 'thunder')
+            thunder = "thnone";
+
+        let ticket = "_";
+        if (this.state.tselected === 'ticket')
+            ticket = "tnone";
+
+        this.setState({
+            details: VortexDetail,
+            vselected: "vortex",
+            thselected: thunder,
+            tselected: ticket
+        })
+    }
+
+    setThunder() {
+
+        let vortex = "_";
+        if (this.state.vselected === 'vortex')
+            vortex = "vnone";
+
+        let ticket = "_";
+        if (this.state.tselected === 'ticket')
+            ticket = "tnone";
+
+        this.setState({
+            details: ComingSoonDetails,
+            vselected: vortex,
+            thselected: "thunder",
+            tselected: ticket
+        })
+    }
+
+    setTicket() {
+
+        let vortex = "";
+        if (this.state.vselected === 'vortex')
+            vortex = "vnone";
+
+        let thunder = "";
+        if (this.state.thselected === 'thunder')
+            thunder = "thnone";
+
+        this.setState({
+            details: ComingSoonDetails,
+            vselected: vortex,
+            thselected: thunder,
+            tselected: "ticket"
+        })
+
+    }
+
+    render() {
         return <div id="particle-div">
-
-            <Particles
-                params={
-                    {
-                        "particles": {
-                            "number": {"value": 10, "density": {"enable": true, "value_area": 1000}},
-                            "color": {"value": ["#ffffff", "#188ae2"]},
-                            "opacity": {
-                                "value": 0.5,
-                                "random": true,
-                                "anim": {"enable": true, "speed": 0.25, "opacity_min": 0.2, "sync": false}
-                            },
-                            "size": {
-                                "value": 8,
-                                "random": true,
-                                "anim": {
-                                    "enable": true,
-                                    "speed": 1,
-                                    "size_min": 6,
-                                    "sync": false
-                                }
-                            },
-                            "line_linked": {
-                                "enable": false,
-                            },
-                            "move": {
-                                "enable": true,
-                                "speed": 1.5,
-                                "speed_min": 1,
-                                "direction": "top",
-                                "random": true,
-                                "straight": false,
-                                "out_mode": "out",
-                                "bounce": false
-
-                            },
-                            "retina_detect": true
-                        }
-                    }
-                }
-
-                width={window.innerWidth}
-
-                height={window.innerHeight}
-
-                style={{
-                    position: 'fixed',
-                    zIndex: -200
-                }}
-
-            />
+            <Particles/>
             <div style={{
                 width: '40%',
                 marginLeft: window.innerWidth * 0.3,
@@ -72,8 +111,8 @@ class App extends Component {
                 <img src={horyus} style={{
                     width: '50%',
                     marginLeft: '25%'
-                }} alt="Horyus"/>
-                <p id={"slogan"}>Blockchain Open Source Content Makers</p>
+                }} alt="Horyus" onMouseOver={this.setHoryus}/>
+                <p className={"slogan"}>Blockchain Open Source Content Makers</p>
             </div>
             <div style={{
                 marginLeft: window.innerWidth * 0.05,
@@ -82,22 +121,13 @@ class App extends Component {
                 float: 'left'
             }}>
                 <p className="describer">tools</p>
-                <a href={"https://github.com/Horyus/vortex"}><p className="title">VortΞx</p></a>
-                <p className="title">ThundΞr</p>
+                <a href={"https://github.com/Horyus/vortex"}><p className="title" onMouseOver={this.setVortex}>Vort<span className={this.state.vselected}>Ξ</span>x</p></a>
+                <a href={"https://google.com"}><p className="title" onMouseOver={this.setThunder}>Thund<span className={this.state.thselected}>Ξ</span>r</p></a>
                 <p className="describer">projects</p>
-                <p className="title">TickΞt721</p>
+                <a href={"https://google.com"}><p className="title" onMouseOver={this.setTicket}>Tick<span className={this.state.tselected}>Ξ</span>t<span className={this.state.tselected}>721</span></p></a>
 
             </div>
-            <div
-            style={{
-                height: window.innerHeight * 0.4,
-                width: window.innerWidth * 0.4,
-                marginLeft: window.innerWidth * 0.15,
-                float: 'left'
-            }}>
-            <Lottie options={defaultOptions}
-                    width={window.innerWidth * 0.4}/>
-            </div>
+            <this.state.details/>
             <div style={{
                 marginRight: window.innerWidth * 0.05,
                 height: window.innerHeight * 0.7,
@@ -105,8 +135,8 @@ class App extends Component {
                 float: 'right'
             }}>
                 <p className="describer_right">more</p>
-                <p className="title_right">Contact</p>
-                <p className="title_right">Blog</p>
+                <p className="title_right">contact</p>
+                <p className="title_right">blog</p>
 
             </div>
         </div>;

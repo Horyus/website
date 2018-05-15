@@ -16,3 +16,50 @@ body {
 #root {
     height: 100%;
 }
+
+#slogan {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 27px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: -27px;
+}
+
+.title_right {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 65px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.describer_right {
+    float: right;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: #ffffff;
+}
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 65px;
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.describer {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+

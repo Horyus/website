@@ -1,0 +1,18 @@
+body {
+    background-color: #121212 !important;
+    height: 100%;
+}
+
+#particles {
+    height: 100%;
+    position: fixed;
+}
+
+#particle-div {
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}

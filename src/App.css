@@ -1,12 +1,12 @@
 body {
-    background: linear-gradient(271deg, #080818, #080812);
-    background-size: 400% 400%;
+    background: linear-gradient(45deg, rgba(8,8,46,1) 0%, rgba(8,8,16,1) 50%, rgba(8,8,46,1) 100%);
+    background-size: 200% 200%;
     height: 100%;
 
-    -webkit-animation: lighteffects 10s ease infinite;
-    -moz-animation: lighteffects 10s ease infinite;
-    -o-animation: lighteffects 10s ease infinite;
-    animation: lighteffects 10s ease infinite;
+    -webkit-animation: lighteffects 15s ease-in-out infinite;
+    -moz-animation: lighteffects 15s ease-in-out infinite;
+    -o-animation: lighteffects 15s ease-in-out infinite;
+    animation: lighteffects 15s ease-in-out infinite;
 }
 
 @-webkit-keyframes lighteffects {

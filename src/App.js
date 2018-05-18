@@ -106,11 +106,12 @@ class App extends Component {
             <Particles/>
             <div style={{
                 width: '40%',
-                marginLeft: window.innerWidth * 0.3,
+                marginLeft: window.innerWidth * 0.05,
+                //marginLeft: window.innerWidth * 0.3,
             }}>
                 <img src={horyus} style={{
-                    width: '50%',
-                    marginLeft: '25%'
+                    width: '40%',
+                    marginTop: window.innerHeight * 0.05
                 }} alt="Horyus" onMouseOver={this.setHoryus}/>
                 <p className={"slogan"}>Blockchain Open Source Content Makers</p>
             </div>
